@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head id="head-container">
+    <!-- Will be populated by templates.js -->
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Header -->
+    <div id="header-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-5 flex-fill">
+        <div class="container">
+            <!-- User Panel -->
+            <div class="user-info p-4 mb-4" id="user-info-card">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Ações Rápidas</h3>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <a href="campanhas.html" class="btn btn-custom-danger w-100">
+                                🩸 Ver Campanhas
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="historico.html" class="btn btn-primary w-100">
+                                📋 Meu Histórico
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="notificacoes.html" class="btn btn-secondary w-100">
+                                🔔 Notificações
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Próximos Agendamentos</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Campanha</th>
+                                    <th>Data/Hora</th>
+                                    <th>Local</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="agendamentosTable">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center mb-4" style="color: var(--bs-red);">Estatísticas das suas Doações</h3>
+                    <div class="row g-3 mb-4" id="user-stats">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                    <div class="achievement text-center p-3" id="user-achievement">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+
+    <div id="scripts-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+      <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/templates.js"></script>
+    <script src="/assets/js/painel.js"></script>
+</body>
+
+</html>
