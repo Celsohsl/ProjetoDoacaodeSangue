@@ -1,0 +1,161 @@
+/* notificacoes.css - Estilos específicos da página de notificações */
+
+/* Estilos das notificações */
+.notification {
+    border-left: 4px solid #e5e7eb;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.notification.unread {
+    background-color: var(--bs-red-light);
+    border-left-color: var(--bs-red);
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+}
+
+.notification:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.notification.unread:hover {
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.notification-title {
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.notification.unread .notification-title {
+    color: var(--bs-red-dark);
+    font-weight: 700;
+}
+
+.notification-date {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.notification p {
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Separadores de seções */
+.notification-section h4 {
+    color: #495057;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.notification-section h4 i {
+    margin-right: 0.5rem;
+}
+
+/* Estado vazio */
+.empty-notifications {
+    text-align: center;
+    padding: 3rem 0;
+    color: #666;
+}
+
+.empty-notifications i {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Botão marcar todas como lidas */
+.btn-mark-all {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-mark-all:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(2, 132, 199, 0.3);
+    background: linear-gradient(135deg, #0284c7, #0ea5e9);
+}
+
+/* Indicadores visuais para diferentes tipos de notificação */
+.notification[data-type="campaign"] {
+    border-left-color: #dc2626;
+}
+
+.notification[data-type="appointment"] {
+    border-left-color: #059669;
+}
+
+.notification[data-type="achievement"] {
+    border-left-color: #d97706;
+}
+
+.notification[data-type="system"] {
+    border-left-color: #7c3aed;
+}
+
+/* Animação de entrada para novas notificações */
+.notification-enter {
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animação de saída ao marcar como lida */
+.notification-fade {
+    animation: fadeOut 0.3s ease-out;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+}
+
+/* Melhorias para dispositivos móveis */
+@media (max-width: 768px) {
+    .notification {
+        margin-bottom: 1rem;
+        padding: 1rem !important;
+    }
+    
+    .notification-title {
+        font-size: 0.9rem;
+    }
+    
+    .notification p {
+        font-size: 0.85rem;
+    }
+    
+    .notification-date {
+        font-size: 0.75rem;
+    }
+}
