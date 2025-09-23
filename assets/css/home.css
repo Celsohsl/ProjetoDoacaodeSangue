@@ -1,0 +1,86 @@
+/* home.css - Homepage specific styles */
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(135deg, var(--bs-red-light), #fee2e2);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+    color: var(--bs-red);
+    font-size: 2rem;
+}
+
+.hero-section p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Campaigns highlight section */
+.campaigns-highlight {
+    margin-top: 3rem;
+}
+
+.campaigns-highlight h2 {
+    color: var(--bs-red);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* Featured campaigns styling */
+#featured-campaigns .campaign-card {
+    border-left-width: 5px;
+}
+
+#featured-campaigns .campaign-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero buttons */
+.hero-section .btn {
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.hero-section .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments for hero section */
+@media (min-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section {
+        padding: 4rem 2rem;
+    }
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Loading state for featured campaigns */
+#featured-campaigns .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Empty state for campaigns */
+#featured-campaigns .empty-state {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
