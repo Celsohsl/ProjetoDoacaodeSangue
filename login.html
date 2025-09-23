@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head id="head-container">
+    <!-- Will be populated by templates.js -->
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Header -->
+    <div id="header-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-5 flex-fill">
+        <div class="container">
+            <!-- Login Form -->
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="text-center mb-4" style="color: var(--bs-red);">Login</h2>
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" class="form-control"
+                                        placeholder="seu.email@exemplo.com" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="senha" class="form-label">Senha</label>
+                                    <input type="password" id="senha" class="form-control"
+                                        placeholder="Digite sua senha" required>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-custom-danger btn-lg">
+                                        Entrar <i class="bi bi-box-arrow-in-right"></i>
+                                    </button>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <a href="#" class="text-decoration-none" style="color: var(--bs-red);">Esqueceu
+                                        sua senha?</a>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <span>Não tem conta? </span>
+                                    <a href="cadastro.html" class="text-decoration-none"
+                                        style="color: var(--bs-red);">Cadastre-se</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+
+    <div id="scripts-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+      <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/templates.js"></script>
+    <script src="/assets/js/login.js"></script>
+</body>
+
+</html>
