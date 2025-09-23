@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head id="head-container">
+    <!-- Will be populated by templates.js -->
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Header -->
+    <div id="header-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-5 flex-fill">
+        <div class="container">
+            <!-- Agendamento Form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="text-center mb-4" style="color: var(--bs-red);">Agendar Doação</h2>
+                            <form id="agendamentoForm">
+                                <div class="mb-3">
+                                    <label for="campanha_select" class="form-label">Campanha</label>
+                                    <select id="campanha_select" class="form-select" required>
+                                        <option value="">Selecione uma campanha</option>
+                                        <!-- Options will be populated by JavaScript -->
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="data_agendamento" class="form-label">Data</label>
+                                        <input type="date" id="data_agendamento" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="hora_agendamento" class="form-label">Horário</label>
+                                        <select id="hora_agendamento" class="form-select" required>
+                                            <option value="">Selecione o horário</option>
+                                            <option value="08:00">08:00</option>
+                                            <option value="08:30">08:30</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="09:30">09:30</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="10:30">10:30</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="14:30">14:30</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="15:30">15:30</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="16:30">16:30</option>
+                                            <option value="17:00">17:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="info-card p-3 mb-4">
+                                    <h4 class="mb-3">Informações Importantes</h4>
+                                    <ul class="mb-0">
+                                        <li class="py-1">Traga um documento de identidade com foto</li>
+                                        <li class="py-1">Tenha uma boa noite de sono antes da doação</li>
+                                        <li class="py-1">Alimente-se bem, evitando alimentos gordurosos</li>
+                                        <li class="py-1">Beba bastante água</li>
+                                        <li class="py-1">Não consuma bebidas alcoólicas 12h antes</li>
+                                        <li class="py-1">Estar em boas condições de saúde</li>
+                                        <li class="py-1">Ter peso mínimo de 50kg</li>
+                                        <li class="py-1">Idade entre 16 e 69 anos</li>
+                                    </ul>
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-success btn-lg">
+                                        Confirmar Agendamento
+                                    </button>
+                                    <a href="campanhas.html" class="btn btn-secondary">
+                                        Voltar
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container">
+        <!-- Will be populated by templates.js -->
+    </div>
+
+    <div id="scripts-container">
+        <!-- Will be populated by templates.js -->
+    </div>  <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/templates.js"></script>
+    <script src="/assets/js/agendamento.js"></script>
+</body>
+
+</html>
