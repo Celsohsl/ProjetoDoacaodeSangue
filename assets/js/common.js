@@ -50,39 +50,6 @@ const mockCampaigns = [
         bloodTypes: ["A+", "B+", "O+", "AB+"],
         icon: "🚐"
     },
-    // {
-    //     id: 4,
-    //     name: "Campanha Hospital da Criança",
-    //     location: "Hospital da Criança - Zona Norte",
-    //     startDate: "02/07/2025",
-    //     endDate: "20/07/2025",
-    //     hours: "8h às 16h",
-    //     description: "Campanha especial para atendimento pediátrico. Necessidade de todos os tipos sanguíneos.",
-    //     bloodTypes: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
-    //     icon: "🏥"
-    // },
-    // {
-    //     id: 5,
-    //     name: "Campanha Hospital Universitário",
-    //     location: "Hospital Universitário - Centro",
-    //     startDate: "05/07/2025",
-    //     endDate: "25/07/2025",
-    //     hours: "7h às 18h",
-    //     description: "Campanha para reposição geral de estoque. Atendimento estendido nos finais de semana.",
-    //     bloodTypes: ["A+", "B+", "O+", "AB+"],
-    //     icon: "🏥"
-    // },
-    // {
-    //     id: 6,
-    //     name: "Campanha Móvel Universidade",
-    //     location: "Universidade Federal - Campus Central",
-    //     startDate: "03/07/2025",
-    //     endDate: "03/07/2025",
-    //     hours: "9h às 16h",
-    //     description: "Unidade móvel especial para estudantes e funcionários universitários. Campanha de um dia.",
-    //     bloodTypes: ["A+", "B+", "O+"],
-    //     icon: "🚐"
-    // }
 ];
 
 const mockAppointments = [
