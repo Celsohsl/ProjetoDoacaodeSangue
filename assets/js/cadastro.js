@@ -28,13 +28,14 @@ function handleRegister(event) {
         email: document.getElementById('email_cadastro').value,
         password: document.getElementById('senha_cadastro').value,
         bloodType: document.getElementById('tipo_sanguineo').value,
-        city: document.getElementById('cidade').value,
-        state: document.getElementById('estado').value
+        // city: document.getElementById('cidade').value,
+        // state: document.getElementById('estado').value
     };
 
     // Validação básica
     if (!formData.name || !formData.email || !formData.password ||
-        !formData.bloodType || !formData.city || !formData.state) {
+        !formData.bloodType // || !formData.city || !formData.state
+    ) {
         showMessage('Por favor, preencha todos os campos', 'error');
         return;
     }
@@ -53,8 +54,8 @@ function handleRegister(event) {
         email: formData.email,
         password: formData.password,
         bloodType: formData.bloodType,
-        city: formData.city,
-        state: formData.state,
+        // city: formData.city,
+        // state: formData.state,
         donations: 0,
         joinDate: new Date().toLocaleDateString('pt-BR')
     };
