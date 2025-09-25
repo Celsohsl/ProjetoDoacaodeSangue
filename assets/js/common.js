@@ -1,6 +1,6 @@
-// common.js - Funções compartilhadas e utilitários (Atualizado para Sistema de Templates)
+// Funções compartilhadas e utilitários
 
-// Dados mock para a aplicação
+// Dados simulados para usuários, campanhas e agendamentos
 const mockUsers = [
     {
         id: 1,
@@ -9,9 +9,7 @@ const mockUsers = [
         password: "123456",
         phone: "(11) 99999-9999",
         bloodType: "A+",
-        city: "São Paulo",
-        state: "SP",
-        donations: 5,
+        donations: 3,
         joinDate: "15/03/2025"
     }
 ];
@@ -21,8 +19,7 @@ const mockCampaigns = [
         id: 1,
         name: "Campanha Hospital Central",
         location: "Hospital Central - Centro",
-        startDate: "01/07/2025",
-        endDate: "15/07/2025",
+        Date: "01/07/2025",
         hours: "8h às 17h",
         description: "Precisamos urgentemente de doadores tipo O+ e AB-. Ajude-nos a salvar vidas!",
         bloodTypes: ["O+", "AB-"],
@@ -32,8 +29,7 @@ const mockCampaigns = [
         id: 2,
         name: "Campanha Hemocentro Regional",
         location: "Hemocentro Regional - Zona Sul",
-        startDate: "28/06/2025",
-        endDate: "10/07/2025",
+        Date: "28/06/2025",
         hours: "7h às 18h",
         description: "Estoque baixo de sangue tipo A+ e O-. Sua doação é essencial!",
         bloodTypes: ["A+", "O-"],
@@ -42,9 +38,8 @@ const mockCampaigns = [
     {
         id: 3,
         name: "Campanha Móvel Shopping",
-        location: "Shopping Center - Praça Central",
-        startDate: "29/06/2025",
-        endDate: "29/06/2025",
+        location: "Shopping Center - Aeon Mall",
+        Date: "21/09/2025",
         hours: "10h às 16h",
         description: "Unidade móvel de coleta. Doe sangue de forma prática e rápida!",
         bloodTypes: ["A+", "B+", "O+", "AB+"],
@@ -72,7 +67,7 @@ function showMessage(message, type = 'info') {
     // Remove mensagens existentes
     const existingMessages = document.querySelectorAll('.toast-message');
     existingMessages.forEach(msg => msg.remove());
-    
+
     const messageDiv = document.createElement('div');
     messageDiv.className = `toast-message alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show position-fixed`;
     messageDiv.style.cssText = `
@@ -82,7 +77,7 @@ function showMessage(message, type = 'info') {
         min-width: 300px;
         max-width: 400px;
     `;
-    
+
     messageDiv.innerHTML = `
         ${message}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -106,7 +101,7 @@ function showMessage(message, type = 'info') {
 // Funções de validação de formulários
 function validateField(field) {
     const value = field.value.trim();
-    
+
     // Limpa erros anteriores
     clearFieldError(field);
 
@@ -155,7 +150,7 @@ function showFieldError(field, message) {
 
 function clearFieldError(field) {
     field.classList.remove('is-invalid');
-    
+
     const errorMessage = field.parentNode.querySelector('.invalid-feedback');
     if (errorMessage) {
         errorMessage.remove();
@@ -182,7 +177,7 @@ function isUserLoggedIn() {
 function logout() {
     localStorage.removeItem('currentUser');
     showMessage('Logout realizado com sucesso!', 'success');
-    
+
     // Redireciona para a página inicial
     setTimeout(() => {
         window.location.href = 'index.html';
@@ -225,11 +220,11 @@ function setupNavbarCollapse() {
 }
 
 // Inicializa funcionalidades comuns
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Atualiza estado global do usuário
     currentUser = getCurrentUser();
     isLoggedIn = currentUser !== null;
-    
+
     // Configura funcionalidades comuns após carregamento dos templates
     setTimeout(() => {
         setupFormValidation();
