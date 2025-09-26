@@ -1,18 +1,18 @@
-// cadastro.js - Página de cadastro com sistema de templates (Atualizado)
+// cadastro.js - Página de registro com sistema de templates
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar página com templates
+document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa a página com os templates
     initializePage('Cadastro', [], ['/assets/js/cadastro.js']);
-    
-    // Aguardar carregamento dos templates e configurar funcionalidade
+
+    // Aguarda o carregamento dos templates e configura as funcionalidades
     setTimeout(() => {
-        // Verificar se usuário já está logado
+        // Verifica se o usuário já está logado
         if (isUserLoggedIn()) {
             window.location.href = 'painel.html';
             return;
         }
-        
-        // Configurar manipulador do formulário
+
+        // Configura o manipulador do formulário
         const cadastroForm = document.getElementById('cadastroForm');
         if (cadastroForm) {
             cadastroForm.addEventListener('submit', handleRegister);
@@ -22,56 +22,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function handleRegister(event) {
     event.preventDefault();
-    
+
     const formData = {
         name: document.getElementById('nome').value,
         email: document.getElementById('email_cadastro').value,
         password: document.getElementById('senha_cadastro').value,
-        bloodType: document.getElementById('tipo_sanguineo').value,
-        // city: document.getElementById('cidade').value,
-        // state: document.getElementById('estado').value
+        bloodType: document.getElementById('tipo_sanguineo').value
     };
 
-    // Validação básica
-    if (!formData.name || !formData.email || !formData.password ||
-        !formData.bloodType // || !formData.city || !formData.state
-    ) {
+    // Validação dos campos do formulário
+    if (!formData.name || !formData.email || !formData.password || !formData.bloodType) {
         showMessage('Por favor, preencha todos os campos', 'error');
         return;
     }
 
-    // Verificar se email já existe
-    const existingUser = mockUsers.find(u => u.email === formData.email);
+    // Verifica se o email já está cadastrado
+    const existingUser = mockUsers.find(u => u.email.toLowerCase() === formData.email.toLowerCase());
     if (existingUser) {
         showMessage('Este email já está cadastrado', 'error');
         return;
     }
 
-    // Criar novo usuário
     const newUser = {
-        id: mockUsers.length + 1,
+        id: Date.now(),
         name: formData.name,
-        email: formData.email,
+        email: formData.email.toLowerCase(),
         password: formData.password,
         bloodType: formData.bloodType,
-        // city: formData.city,
-        // state: formData.state,
         donations: 0,
         joinDate: new Date().toLocaleDateString('pt-BR')
     };
 
-    mockUsers.push(newUser);
-
-    showMessage('Cadastro realizado com sucesso! Faça login para continuar.', 'success');
-    
-    // Limpar formulário
+    addUser(newUser);
     document.getElementById('cadastroForm').reset();
-    
-    // Redirecionar para página de login
+    showMessage('Cadastro realizado com sucesso! Redirecionando...', 'success');
+
     setTimeout(() => {
         window.location.href = 'login.html';
     }, 2000);
 }
 
-// Exportar funções para uso global
+// Exporta as funções para uso global
 window.handleRegister = handleRegister;
