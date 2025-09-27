@@ -1,23 +1,23 @@
-// painel.js - Dashboard com sistema de templates (Atualizado)
+// Painel de controle do usuário com sistema de templates
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar página com templates
+document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa a página com templates e estilos
     initializePage('Painel', ['/assets/css/painel.css'], ['/assets/js/painel.js']);
-    
-    // Aguardar carregamento dos templates e configurar funcionalidade
+
+    // Aguarda carregamento dos templates e configura funcionalidades
     setTimeout(() => {
         setupPainelPage();
     }, 100);
 });
 
 function setupPainelPage() {
-    // Verificar se usuário está logado
+    // Verifica autenticação do usuário
     const currentUser = getCurrentUser();
     if (!currentUser) {
         window.location.href = 'login.html';
         return;
     }
-    
+
     updateUserDashboard(currentUser);
     updateAppointmentsTable(currentUser);
     updateUserStats(currentUser);
@@ -37,6 +37,7 @@ function updateAppointmentsTable(user) {
 
     const userAppointments = mockAppointments.filter(app => app.userId === user.id);
 
+    // Exibe mensagem quando não há agendamentos
     if (userAppointments.length === 0) {
         tableBody.innerHTML = `
             <tr>
@@ -54,10 +55,11 @@ function updateAppointmentsTable(user) {
         return;
     }
 
+    // Preenche tabela com agendamentos do usuário
     tableBody.innerHTML = userAppointments.map(appointment => {
         const campaign = mockCampaigns.find(c => c.id === appointment.campaignId);
-        const statusClass = appointment.status === 'Confirmado' ? 'bg-success' : 
-                           appointment.status === 'Pendente' ? 'bg-warning' : 'bg-secondary';
+        const statusClass = appointment.status === 'Confirmado' ? 'bg-success' :
+            appointment.status === 'Pendente' ? 'bg-warning' : 'bg-secondary';
 
         return `
             <tr>
@@ -80,10 +82,11 @@ function updateUserStats(user) {
 function updateUserAchievement(user) {
     const achievementContainer = document.getElementById('user-achievement');
     if (!achievementContainer) return;
-    
+
+    // Define nível e ícone com base no número de doações
     let achievementLevel = '';
     let achievementIcon = '';
-    
+
     if (user.donations === 0) {
         achievementLevel = 'Novo Doador';
         achievementIcon = '🌟';
@@ -100,11 +103,11 @@ function updateUserAchievement(user) {
         achievementLevel = 'Doador Herói';
         achievementIcon = '👑';
     }
-    
+
     achievementContainer.innerHTML = `${achievementIcon} Parabéns! Você é um ${achievementLevel}!`;
 }
 
-// Exportar funções para uso global
+// Funções disponíveis globalmente
 window.updateUserDashboard = updateUserDashboard;
 window.updateAppointmentsTable = updateAppointmentsTable;
 window.updateUserStats = updateUserStats;

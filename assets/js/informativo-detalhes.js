@@ -408,29 +408,31 @@ const informativosData = [
     }
 ];
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Inicializar página com templates
     initializePage('Detalhes do Informativo', ['/assets/css/informativo-detalhes.css'], ['/assets/js/informativo-detalhes.js']);
-    
-    // Aguardar carregamento dos templates e carregar conteúdo
-    setTimeout(() => {
-        loadArticleContent();
-    }, 100);
+
+    // Carregar conteúdo do artigo
+    loadArticleContent();
 });
 
 function loadArticleContent() {
+    // Obtém o ID do artigo da URL
     const urlParams = new URLSearchParams(window.location.search);
     const articleId = parseInt(urlParams.get('id'));
-    
+
     const contentDiv = document.getElementById('informativo-content');
-    
+
+    // Verifica se o ID é válido
     if (!articleId || isNaN(articleId)) {
         showErrorState(contentDiv, 'Artigo não encontrado');
         return;
     }
-    
+
+    // Busca o artigo pelo ID
     const article = informativosData.find(info => info.id === articleId);
-    
+
+    // Exibe o conteúdo do artigo ou mensagem de erro
     if (article) {
         contentDiv.innerHTML = article.fullText;
         updatePageTitle(article.title);
@@ -440,6 +442,7 @@ function loadArticleContent() {
 }
 
 function showErrorState(contentDiv, message) {
+    // Exibe mensagem de erro quando artigo não é encontrado
     contentDiv.innerHTML = getErrorTemplate(
         message,
         'O artigo que você está procurando não foi encontrado ou não existe mais.',
@@ -449,6 +452,7 @@ function showErrorState(contentDiv, message) {
 }
 
 function updatePageTitle(articleTitle) {
+    // Atualiza o título da página com o título do artigo
     document.title = `${articleTitle} - Doação de Sangue Solidária`;
 }
 

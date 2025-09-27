@@ -1,12 +1,12 @@
-// templates.js - Sistema de templates reutilizáveis (Atualizado)
+// Sistema de templates reutilizáveis para interface do usuário
 
-// Template do Header/Navbar
 function getHeaderTemplate(currentPage = '') {
     const currentUser = getCurrentUser();
     const isLoggedIn = currentUser !== null;
-    
+
     let navigation = '';
-    
+
+    // Define os links de navegação baseado no estado de login
     if (isLoggedIn) {
         navigation = `
             <a class="btn btn-outline-light me-2 mb-2" href="index.html">🏠 Início</a>
@@ -31,7 +31,7 @@ function getHeaderTemplate(currentPage = '') {
             <a class="btn btn-outline-light me-2 mb-2" href="cadastro.html">👤 Cadastrar</a>
         `;
     }
-    
+
     return `
         <nav class="navbar navbar-expand-lg custom-header fixed-top">
             <div class="container">
@@ -57,7 +57,7 @@ function getHeaderTemplate(currentPage = '') {
     `;
 }
 
-// Template do Footer
+// Template do rodapé
 function getFooterTemplate() {
     return `
         <footer class="custom-footer text-center py-4 mt-5">
@@ -122,7 +122,7 @@ function getFooterTemplate() {
     `;
 }
 
-// Template do Head HTML
+// Template do cabeçalho HTML com estilos específicos
 function getHeadTemplate(pageTitle, specificCSS = []) {
     const cssFiles = [
         'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
@@ -130,9 +130,9 @@ function getHeadTemplate(pageTitle, specificCSS = []) {
         '/assets/css/style.css',
         ...specificCSS
     ];
-    
+
     const cssLinks = cssFiles.map(css => `<link href="${css}" rel="stylesheet">`).join('\n        ');
-    
+
     return `
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -147,7 +147,7 @@ function getHeadTemplate(pageTitle, specificCSS = []) {
     `;
 }
 
-// Template dos Scripts
+// Template para inclusão de scripts
 function getScriptsTemplate(specificJS = []) {
     const jsFiles = [
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js',
@@ -155,13 +155,11 @@ function getScriptsTemplate(specificJS = []) {
         '/assets/js/templates.js',
         ...specificJS
     ];
-    
-    const scriptTags = jsFiles.map(js => `<script src="${js}"></script>`).join('\n        ');
-    
-    return scriptTags;
+
+    return jsFiles.map(js => `<script src="${js}"></script>`).join('\n        ');
 }
 
-// Template para Card de Campanha
+// Template para cartão de campanha de doação
 function getCampaignCardTemplate(campaign) {
     return `
         <div class="col-lg-4 col-md-6">
@@ -179,7 +177,7 @@ function getCampaignCardTemplate(campaign) {
     `;
 }
 
-// Template para Card de Informativo
+// Template para cartão de informativo
 function getInformativoCardTemplate(informativo) {
     return `
         <div class="col-lg-4 col-md-6">
@@ -195,7 +193,7 @@ function getInformativoCardTemplate(informativo) {
     `;
 }
 
-// Template para Notificação
+// Template para exibição de notificação
 function getNotificationTemplate(notification) {
     return `
         <div class="notification p-3 mb-3 ${!notification.read ? 'unread' : ''}" data-id="${notification.id}">
@@ -208,30 +206,24 @@ function getNotificationTemplate(notification) {
     `;
 }
 
-// Template para Card de Informações do Usuário
+// Template para cartão de informações do usuário
 function getUserInfoCardTemplate(user) {
     return `
         <h2 class="mb-4">Bem-vindo, ${user.name}! 👋</h2>
         <div class="row g-3">
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-4">
                 <div class="user-detail text-center p-3">
                     <strong>🩸 ${user.bloodType}</strong>
                     <span>Tipo Sanguíneo</span>
                 </div>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="user-detail text-center p-3">
-                    <strong>📍 ${user.city}, ${user.state}</strong>
-                    <span>Localização</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-4">
                 <div class="user-detail text-center p-3">
                     <strong>📅 ${user.joinDate}</strong>
                     <span>Cadastrado em</span>
                 </div>
             </div>
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-4">
                 <div class="user-detail text-center p-3">
                     <strong>${user.donations} Doações</strong>
                     <span>Total Realizado</span>
@@ -241,10 +233,10 @@ function getUserInfoCardTemplate(user) {
     `;
 }
 
-// Template para Estatísticas do Usuário
+// Template para estatísticas do usuário
 function getUserStatsTemplate(user) {
     const nextDonation = user.donations > 0 ? '90 dias' : 'Disponível';
-    
+
     return `
         <div class="col-6 col-md-3">
             <div class="stat-item text-center p-3">
@@ -273,7 +265,7 @@ function getUserStatsTemplate(user) {
     `;
 }
 
-// Template para Estado de Carregamento
+// Template para indicador de carregamento
 function getLoadingTemplate(message = 'Carregando...') {
     return `
         <div class="text-center py-5">
@@ -285,7 +277,7 @@ function getLoadingTemplate(message = 'Carregando...') {
     `;
 }
 
-// Template para Estado de Erro
+// Template para mensagem de erro
 function getErrorTemplate(title, message, buttonText = 'Voltar', buttonLink = 'index.html') {
     return `
         <div class="error-state text-center py-5">
@@ -301,10 +293,10 @@ function getErrorTemplate(title, message, buttonText = 'Voltar', buttonLink = 'i
     `;
 }
 
-// Template para Estado Vazio
+// Template para estado vazio
 function getEmptyStateTemplate(icon, title, message, buttonText = '', buttonLink = '') {
     const button = buttonText ? `<a href="${buttonLink}" class="btn btn-primary mt-3">${buttonText}</a>` : '';
-    
+
     return `
         <div class="empty-state text-center py-5">
             <i class="bi ${icon} text-muted" style="font-size: 3rem;"></i>
@@ -315,7 +307,7 @@ function getEmptyStateTemplate(icon, title, message, buttonText = '', buttonLink
     `;
 }
 
-// Função para renderizar templates em elementos específicos
+// Renderiza template em elemento específico
 function renderTemplate(elementId, templateFunction, ...args) {
     const element = document.getElementById(elementId);
     if (element) {
@@ -323,45 +315,43 @@ function renderTemplate(elementId, templateFunction, ...args) {
     }
 }
 
-// Função para inicializar header e footer automaticamente
+// Inicializa componentes básicos da página
 function initializeTemplates(pageTitle = '') {
-    // Renderizar header
+    // Renderiza cabeçalho
     const headerContainer = document.getElementById('header-container');
     if (headerContainer) {
         headerContainer.innerHTML = getHeaderTemplate();
     }
-    
-    // Renderizar footer
+
+    // Renderiza rodapé
     const footerContainer = document.getElementById('footer-container');
     if (footerContainer) {
         footerContainer.innerHTML = getFooterTemplate();
     }
-    
-    // Atualizar título da página se fornecido
+
     if (pageTitle) {
         document.title = `${pageTitle} - Doação de Sangue Solidária`;
     }
 }
 
-// Função para inicializar página completa
+// Inicializa página completa com todos os componentes
 function initializePage(pageTitle, specificCSS = [], specificJS = []) {
-    // Configurar head
+    // Configura cabeçalho HTML
     const headContainer = document.getElementById('head-container');
     if (headContainer) {
         headContainer.innerHTML = getHeadTemplate(pageTitle, specificCSS);
     }
-    
-    // Configurar templates básicos
+
     initializeTemplates(pageTitle);
-    
-    // Configurar scripts
+
+    // Configura scripts
     const scriptsContainer = document.getElementById('scripts-container');
     if (scriptsContainer) {
         scriptsContainer.innerHTML = getScriptsTemplate(specificJS);
     }
 }
 
-// Exportar funções para uso global
+// Exporta funções para uso global
 window.getHeaderTemplate = getHeaderTemplate;
 window.getFooterTemplate = getFooterTemplate;
 window.getHeadTemplate = getHeadTemplate;
