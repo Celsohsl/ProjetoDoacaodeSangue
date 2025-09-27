@@ -1,23 +1,22 @@
-// historico.js - Histórico de doações com sistema de templates (Atualizado)
+// Página de histórico de doações de sangue
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar página com templates
+document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa a página com os componentes necessários
     initializePage('Histórico', [], ['/assets/js/historico.js']);
-    
-    // Aguardar carregamento dos templates e configurar funcionalidade
+
     setTimeout(() => {
         setupHistoricoPage();
     }, 100);
 });
 
 function setupHistoricoPage() {
-    // Verificar se usuário está logado
+    // Verifica autenticação do usuário
     const currentUser = getCurrentUser();
     if (!currentUser) {
         window.location.href = 'login.html';
         return;
     }
-    
+
     updateHistoryTable(currentUser);
 }
 
@@ -25,7 +24,7 @@ function updateHistoryTable(user) {
     const historyTableBody = document.getElementById('historicoTable');
     if (!historyTableBody) return;
 
-    // Mostrar estado de carregamento
+    // Exibe indicador de carregamento
     historyTableBody.innerHTML = `
         <tr>
             <td colspan="4" class="text-center py-4">
@@ -37,13 +36,12 @@ function updateHistoryTable(user) {
         </tr>
     `;
 
-    // Simular delay de carregamento
     setTimeout(() => {
-        // Simular histórico baseado no número de doações
+        // Cria histórico com base no número de doações do usuário
         const historyData = [];
         for (let i = 0; i < user.donations; i++) {
             const date = new Date();
-            date.setMonth(date.getMonth() - (i + 1) * 2); // Espaçar doações a cada 2 meses
+            date.setMonth(date.getMonth() - (i + 1) * 2); // Intervalo de 2 meses entre doações
 
             historyData.push({
                 campaign: mockCampaigns[i % mockCampaigns.length].name,
@@ -53,6 +51,7 @@ function updateHistoryTable(user) {
             });
         }
 
+        // Exibe mensagem quando não há doações
         if (historyData.length === 0) {
             historyTableBody.innerHTML = `
                 <tr>
@@ -71,9 +70,10 @@ function updateHistoryTable(user) {
             return;
         }
 
-        // Ordenar por data (mais recente primeiro)
+        // Ordena doações por data mais recente
         historyData.sort((a, b) => new Date(b.date.split('/').reverse().join('-')) - new Date(a.date.split('/').reverse().join('-')));
 
+        // Preenche a tabela com o histórico de doações
         historyTableBody.innerHTML = historyData.map((item, index) => `
             <tr>
                 <td>
@@ -96,7 +96,7 @@ function updateHistoryTable(user) {
             </tr>
         `).join('');
 
-        // Adicionar linha de resumo
+        // Adiciona resumo das doações
         historyTableBody.innerHTML += `
             <tr class="table-info">
                 <td colspan="4" class="text-center fw-bold">
