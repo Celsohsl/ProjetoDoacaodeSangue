@@ -1,23 +1,22 @@
-// notificacoes.js - Notificações com sistema de templates (Atualizado)
+// Sistema de gerenciamento de notificações
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar página com templates
+document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa página com templates e estilos
     initializePage('Notificações', ['/assets/css/notificacoes.css'], ['/assets/js/notificacoes.js']);
-    
-    // Aguardar carregamento dos templates e configurar funcionalidade
+
     setTimeout(() => {
         setupNotificacoesPage();
     }, 100);
 });
 
 function setupNotificacoesPage() {
-    // Verificar se usuário está logado
+    // Verifica autenticação do usuário
     const currentUser = getCurrentUser();
     if (!currentUser) {
         window.location.href = 'login.html';
         return;
     }
-    
+
     loadNotifications();
     setupNotificationInteractions();
 }
@@ -25,13 +24,12 @@ function setupNotificacoesPage() {
 function loadNotifications() {
     const container = document.getElementById('notificacoes-container');
     if (!container) return;
-    
-    // Mostrar estado de carregamento
+
+    // Exibe indicador de carregamento
     container.innerHTML = getLoadingTemplate('Carregando notificações...');
-    
-    // Simular delay de carregamento
+
     setTimeout(() => {
-        // Dados mock de notificações (poderiam ser obtidos de uma API)
+        // Dados simulados de notificações
         const notifications = [
             {
                 id: 1,
@@ -69,7 +67,7 @@ function loadNotifications() {
                 read: true
             }
         ];
-        
+
         displayNotifications(notifications);
     }, 500);
 }
@@ -77,7 +75,8 @@ function loadNotifications() {
 function displayNotifications(notifications) {
     const container = document.getElementById('notificacoes-container');
     if (!container) return;
-    
+
+    // Exibe mensagem quando não há notificações
     if (notifications.length === 0) {
         container.innerHTML = getEmptyStateTemplate(
             'bi-bell-slash',
@@ -88,14 +87,14 @@ function displayNotifications(notifications) {
         );
         return;
     }
-    
-    // Separar notificações lidas e não lidas
+
+    // Organiza notificações por status de leitura
     const unreadNotifications = notifications.filter(n => !n.read);
     const readNotifications = notifications.filter(n => n.read);
-    
+
     let html = '';
-    
-    // Adicionar seção de não lidas se existirem
+
+    // Seção de notificações não lidas
     if (unreadNotifications.length > 0) {
         html += `
             <div class="mb-4">
@@ -106,8 +105,8 @@ function displayNotifications(notifications) {
             </div>
         `;
     }
-    
-    // Adicionar seção de lidas se existirem
+
+    // Seção de notificações lidas
     if (readNotifications.length > 0) {
         html += `
             <div class="mb-4">
@@ -118,8 +117,8 @@ function displayNotifications(notifications) {
             </div>
         `;
     }
-    
-    // Adicionar botão para marcar todas como lidas se existirem não lidas
+
+    // Botão para marcar todas como lidas
     if (unreadNotifications.length > 0) {
         html += `
             <div class="text-center mt-4">
@@ -129,20 +128,20 @@ function displayNotifications(notifications) {
             </div>
         `;
     }
-    
+
     container.innerHTML = html;
 }
 
 function setupNotificationInteractions() {
-    // Adicionar manipuladores de clique para notificações (delegação de eventos)
-    document.addEventListener('click', function(e) {
-        // Manipular clique individual na notificação
+    // Configura interações com as notificações
+    document.addEventListener('click', function (e) {
+        // Tratamento de clique em notificação individual
         if (e.target.closest('.notification.unread')) {
             const notification = e.target.closest('.notification');
             markAsRead(notification);
         }
-        
-        // Manipular botões de ação das notificações se houver
+
+        // Tratamento de ações específicas
         if (e.target.matches('.notification-action')) {
             e.preventDefault();
             const action = e.target.dataset.action;
@@ -154,36 +153,36 @@ function setupNotificationInteractions() {
 
 function markAsRead(notificationElement) {
     notificationElement.classList.remove('unread');
-    
-    // Adicionar feedback visual
+
+    // Adiciona indicador visual de leitura
     const title = notificationElement.querySelector('.notification-title');
     if (title && !title.innerHTML.includes('✓')) {
         title.innerHTML = title.innerHTML + ' <small class="text-success">✓</small>';
     }
-    
-    // Em uma aplicação real, seria enviado para o servidor
+
     const notificationId = notificationElement.dataset.id;
-    console.log('Marcando notificação como lida:', notificationId);
-    
+    console.log('Notificação marcada como lida:', notificationId);
+
     showMessage('Notificação marcada como lida', 'success');
 }
 
 function markAllAsRead() {
     const unreadNotifications = document.querySelectorAll('.notification.unread');
-    
+
     unreadNotifications.forEach(notification => {
         markAsRead(notification);
     });
-    
-    // Atualizar a exibição após um pequeno delay
+
+    // Atualiza interface após marcar todas como lidas
     setTimeout(() => {
-        loadNotifications(); // Recarregar para atualizar as seções
+        loadNotifications();
     }, 1000);
-    
+
     showMessage(`${unreadNotifications.length} notificações marcadas como lidas`, 'success');
 }
 
 function handleNotificationAction(action, notificationId) {
+    // Tratamento das ações das notificações
     switch (action) {
         case 'view-campaign':
             window.location.href = 'campanhas.html';
@@ -195,11 +194,11 @@ function handleNotificationAction(action, notificationId) {
             showMessage('Redirecionando para resultados...', 'info');
             break;
         default:
-            console.log('Ação desconhecida:', action);
+            console.log('Ação não reconhecida:', action);
     }
 }
 
-// Exportar funções para uso global
+// Funções disponíveis globalmente
 window.markAllAsRead = markAllAsRead;
 window.markAsRead = markAsRead;
 window.handleNotificationAction = handleNotificationAction;

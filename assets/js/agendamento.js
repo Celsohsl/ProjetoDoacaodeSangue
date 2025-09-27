@@ -1,10 +1,8 @@
-// agendamento.js - Agendamento com sistema de templates (Atualizado)
+// Sistema de agendamento templates
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar página com templates
+document.addEventListener('DOMContentLoaded', function () {
     initializePage('Agendamento', [], ['/assets/js/agendamento.js']);
-    
-    // Aguardar carregamento dos templates e configurar funcionalidade
+
     setTimeout(() => {
         setupAgendamentoPage();
     }, 100);
@@ -12,12 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function setupAgendamentoPage() {
     const agendamentoForm = document.getElementById('agendamentoForm');
-    
+
     if (agendamentoForm) {
-        // Popular dropdown de campanhas
         populateCampaignSelect();
-        
-        // Configurar manipulador do formulário
         agendamentoForm.addEventListener('submit', handleScheduleAppointment);
     }
 }
@@ -25,15 +20,15 @@ function setupAgendamentoPage() {
 function populateCampaignSelect() {
     const campaignSelect = document.getElementById('campanha_select');
     if (!campaignSelect) return;
-    
-    // Limpar opções existentes exceto a primeira
+
+    // Preserva a opção padrão
     const firstOption = campaignSelect.querySelector('option[value=""]');
     campaignSelect.innerHTML = '';
     if (firstOption) {
         campaignSelect.appendChild(firstOption);
     }
-    
-    // Adicionar opções de campanhas
+
+    // Adiciona campanhas disponíveis
     mockCampaigns.forEach(campaign => {
         const option = document.createElement('option');
         option.value = campaign.id;
@@ -44,8 +39,8 @@ function populateCampaignSelect() {
 
 function handleScheduleAppointment(event) {
     event.preventDefault();
-    
-    // Verificar se usuário está logado
+
+    // Verificação de autenticação
     const currentUser = getCurrentUser();
     if (!currentUser) {
         showMessage('Você precisa fazer login para agendar uma doação', 'error');
@@ -64,7 +59,7 @@ function handleScheduleAppointment(event) {
         return;
     }
 
-    // Verificar se a data não está no passado
+    // Validação da data
     const selectedDate = new Date(date);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -74,11 +69,11 @@ function handleScheduleAppointment(event) {
         return;
     }
 
-    // Verificar se usuário já tem agendamento para a mesma campanha
+    // Verificação de agendamento duplicado
     const existingAppointment = mockAppointments.find(
-        app => app.userId === currentUser.id && 
-               app.campaignId === parseInt(campaignId) && 
-               app.status === 'Confirmado'
+        app => app.userId === currentUser.id &&
+            app.campaignId === parseInt(campaignId) &&
+            app.status === 'Confirmado'
     );
 
     if (existingAppointment) {
@@ -86,7 +81,7 @@ function handleScheduleAppointment(event) {
         return;
     }
 
-    // Simular criação do agendamento
+    // Criação do novo agendamento
     const newAppointment = {
         id: mockAppointments.length + 1,
         userId: currentUser.id,
@@ -98,16 +93,12 @@ function handleScheduleAppointment(event) {
 
     mockAppointments.push(newAppointment);
 
-    // Limpar formulário
     document.getElementById('agendamentoForm').reset();
-
     showMessage('Agendamento realizado com sucesso!', 'success');
-    
-    // Redirecionar para dashboard
+
     setTimeout(() => {
         window.location.href = 'painel.html';
     }, 2000);
 }
 
-// Exportar funções para uso global
 window.handleScheduleAppointment = handleScheduleAppointment;

@@ -1,25 +1,13 @@
-// Funções compartilhadas e utilitários
+// common.js - Funções compartilhadas e utilitários (Atualizado para Sistema de Templates)
 
-// Dados simulados para usuários, campanhas e agendamentos
-const mockUsers = [
-    {
-        id: 1,
-        name: "João Silva",
-        email: "joao@exemplo.com",
-        password: "123456",
-        phone: "(11) 99999-9999",
-        bloodType: "A+",
-        donations: 3,
-        joinDate: "15/03/2025"
-    }
-];
-
+// Dados mock para a aplicação
 const mockCampaigns = [
     {
         id: 1,
         name: "Campanha Hospital Central",
         location: "Hospital Central - Centro",
-        Date: "01/07/2025",
+        startDate: "01/07/2025",
+        endDate: "15/07/2025",
         hours: "8h às 17h",
         description: "Precisamos urgentemente de doadores tipo O+ e AB-. Ajude-nos a salvar vidas!",
         bloodTypes: ["O+", "AB-"],
@@ -29,7 +17,8 @@ const mockCampaigns = [
         id: 2,
         name: "Campanha Hemocentro Regional",
         location: "Hemocentro Regional - Zona Sul",
-        Date: "28/06/2025",
+        startDate: "28/06/2025",
+        endDate: "10/07/2025",
         hours: "7h às 18h",
         description: "Estoque baixo de sangue tipo A+ e O-. Sua doação é essencial!",
         bloodTypes: ["A+", "O-"],
@@ -38,13 +27,47 @@ const mockCampaigns = [
     {
         id: 3,
         name: "Campanha Móvel Shopping",
-        location: "Shopping Center - Aeon Mall",
-        Date: "21/09/2025",
+        location: "Shopping Center - Praça Central",
+        startDate: "29/06/2025",
+        endDate: "29/06/2025",
         hours: "10h às 16h",
         description: "Unidade móvel de coleta. Doe sangue de forma prática e rápida!",
         bloodTypes: ["A+", "B+", "O+", "AB+"],
         icon: "🚐"
     },
+    {
+        id: 4,
+        name: "Campanha Hospital da Criança",
+        location: "Hospital da Criança - Zona Norte",
+        startDate: "02/07/2025",
+        endDate: "20/07/2025",
+        hours: "8h às 16h",
+        description: "Campanha especial para atendimento pediátrico. Necessidade de todos os tipos sanguíneos.",
+        bloodTypes: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+        icon: "🏥"
+    },
+    {
+        id: 5,
+        name: "Campanha Hospital Universitário",
+        location: "Hospital Universitário - Centro",
+        startDate: "05/07/2025",
+        endDate: "25/07/2025",
+        hours: "7h às 18h",
+        description: "Campanha para reposição geral de estoque. Atendimento estendido nos finais de semana.",
+        bloodTypes: ["A+", "B+", "O+", "AB+"],
+        icon: "🏥"
+    },
+    {
+        id: 6,
+        name: "Campanha Móvel Universidade",
+        location: "Universidade Federal - Campus Central",
+        startDate: "03/07/2025",
+        endDate: "03/07/2025",
+        hours: "9h às 16h",
+        description: "Unidade móvel especial para estudantes e funcionários universitários. Campanha de um dia.",
+        bloodTypes: ["A+", "B+", "O+"],
+        icon: "🚐"
+    }
 ];
 
 const mockAppointments = [
@@ -61,6 +84,39 @@ const mockAppointments = [
 // Estado da aplicação
 let currentUser = null;
 let isLoggedIn = false;
+
+// Configuração inicial do armazenamento local
+if (!localStorage.getItem('mockUsers')) {
+    localStorage.setItem('mockUsers', JSON.stringify([]));
+}
+
+let mockUsers = JSON.parse(localStorage.getItem('mockUsers')) || [];
+
+function updateMockUsers() {
+    localStorage.setItem('mockUsers', JSON.stringify(mockUsers));
+}
+
+function addUser(user) {
+    mockUsers.push(user);
+    updateMockUsers();
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('currentUser') !== null;
+}
+
+function showMessage(message, type = 'info') {
+    const toast = document.createElement('div');
+    toast.className = `alert alert-${type} position-fixed top-0 start-50 translate-middle-x mt-3`;
+    toast.style.zIndex = '1000';
+    toast.textContent = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
 
 // Funções utilitárias
 function showMessage(message, type = 'info') {
@@ -171,7 +227,7 @@ function getCurrentUser() {
 }
 
 function isUserLoggedIn() {
-    return getCurrentUser() !== null;
+    return localStorage.getItem('currentUser') !== null;
 }
 
 function logout() {
@@ -208,7 +264,7 @@ function setupDateInputs() {
 function setupNavbarCollapse() {
     const navbarCollapse = document.getElementById('navbarNav');
     if (navbarCollapse) {
-        navbarCollapse.addEventListener('click', function(e) {
+        navbarCollapse.addEventListener('click', function (e) {
             if (e.target.classList.contains('btn')) {
                 const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
                     toggle: false
@@ -244,3 +300,5 @@ window.clearFieldError = clearFieldError;
 window.mockUsers = mockUsers;
 window.mockCampaigns = mockCampaigns;
 window.mockAppointments = mockAppointments;
+window.updateMockUsers = updateMockUsers;
+window.addUser = addUser;
