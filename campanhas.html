@@ -2,26 +2,26 @@
 <html lang="pt-BR">
 
 <head id="head-container">
-    <!-- Will be populated by templates.js -->
+    <!-- Será preenchido pelo templates.js -->
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <!-- Header -->
+    <!-- Cabeçalho -->
     <div id="header-container">
-        <!-- Will be populated by templates.js -->
+        <!-- Será preenchido pelo templates.js -->
     </div>
 
-    <!-- Main Content -->
+    <!-- Conteúdo Principal -->
     <main class="py-5 flex-fill">
         <div class="container">
             <!-- Campanhas -->
             <div class="card">
                 <div class="card-body">
-                    <h2 class="text-center mb-4 fw-bold" style="color: var(--bs-red);">Campanhas Ativas</h2>
+                    <h2 class="text-center mb-4 text-danger fw-bold">Campanhas Ativas</h2>
                     <div class="row g-4" id="campanhas-container">
-                        <!-- Will be populated by JavaScript -->
+                        <!-- Será preenchido via JavaScript -->
                         <div id="loading-campanhas">
-                            <!-- Loading state will be shown here -->
+                            <!-- Estado de carregamento será exibido aqui -->
                         </div>
                     </div>
                 </div>
@@ -29,17 +29,15 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <div id="footer-container">
-        <!-- Will be populated by templates.js -->
+        <!-- Será preenchido pelo templates.js -->
     </div>
-
-    <div id="scripts-container">
-        <!-- Will be populated by templates.js -->
-    </div>
-      <script src="/assets/js/common.js"></script>
+    <!-- Scripts -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/common.js"></script>
     <script src="/assets/js/templates.js"></script>
-      <script src="/assets/js/campanhas.js"></script>
+    <script src="/assets/js/campanhas.js"></script>
 </body>
 
 </html>

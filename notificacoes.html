@@ -2,35 +2,35 @@
 <html lang="pt-BR">
 
 <head id="head-container">
-    <!-- Will be populated by templates.js -->
+    <!-- Será preenchido pelo templates.js -->
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <!-- Header -->
+    <!-- Cabeçalho -->
     <div id="header-container">
-        <!-- Will be populated by templates.js -->
+        <!-- Será preenchido pelo templates.js -->
     </div>
 
-    <!-- Main Content -->
+    <!-- Conteúdo Principal -->
     <main class="py-5 flex-fill">
         <div class="container">
-            <!-- Histórico -->
+            <!-- Notificações -->
             <div class="card">
                 <div class="card-body">
-                    <h2 class="text-center mb-4" style="color: var(--bs-red);">Histórico de Doações</h2>
+                    <h2 class="text-center mb-4 text-danger fw-bold">Notificações</h2>
 
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead class="table-light">
                                 <tr>
-                                    <th>Campanha</th>
-                                    <th>Data da Doação</th>
-                                    <th>Local</th>
+                                    <th>Título</th>
+                                    <th>Data</th>
+                                    <th>Tipo</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody id="historicoTable">
-                                <!-- Will be populated by JavaScript -->
+                            <tbody id="notificacoes-container">
+                                <!-- Será preenchido via JavaScript -->
                             </tbody>
                         </table>
                     </div>
@@ -39,17 +39,15 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <div id="footer-container">
-        <!-- Will be populated by templates.js -->
+        <!-- Será preenchido pelo templates.js -->
     </div>
-
-    <div id="scripts-container">
-        <!-- Will be populated by templates.js -->
-    </div>
-      <script src="/assets/js/common.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/common.js"></script>
     <script src="/assets/js/templates.js"></script>
-        <script src="/assets/js/notificacoes.js"></script>
+    <script src="/assets/js/notificacoes.js"></script>
 </body>
 
 </html>

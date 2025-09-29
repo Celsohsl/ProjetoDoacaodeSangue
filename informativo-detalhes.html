@@ -2,50 +2,41 @@
 <html lang="pt-BR">
 
 <head id="head-container">
-    <!-- Will be populated by templates.js -->
+    <!-- Será preenchido pelo templates.js -->
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <!-- Header -->
+    <!-- Cabeçalho -->
     <div id="header-container">
-        <!-- Will be populated by templates.js -->
+        <!-- Será preenchido pelo templates.js -->
     </div>
 
-    <!-- Main Content -->
+    <!-- Conteúdo Principal -->
     <main class="py-5 flex-fill">
         <div class="container">
             <!-- Detalhe do Informativo -->
             <div class="card">
                 <div class="card-body">
                     <div id="informativo-content">
-                        <!-- Content will be loaded via JavaScript -->
-                        <div class="text-center py-5">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Carregando...</span>
-                            </div>
-                            <p class="mt-3">Carregando artigo...</p>
+                        <!-- Conteúdo será carregado pelo JavaScript -->
+
+                        <div class="mt-4">
+                            <a href="informativos.html" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Voltar para Informativos
+                            </a>
                         </div>
-                    </div>
-                    
-                    <div class="mt-4">
-                        <a href="informativos.html" class="btn btn-secondary">
-                            <i class="bi bi-arrow-left"></i> Voltar para Informativos
-                        </a>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <div id="footer-container">
-        <!-- Will be populated by templates.js -->
+        <!-- Será preenchido pelo templates.js -->
     </div>
-
-    <div id="scripts-container">
-        <!-- Will be populated by templates.js -->
-    </div>
-      <script src="/assets/js/common.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/common.js"></script>
     <script src="/assets/js/templates.js"></script>
     <script src="/assets/js/informativo-detalhes.js"></script>
 </body>
