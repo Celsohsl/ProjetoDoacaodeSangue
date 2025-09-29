@@ -1,4 +1,4 @@
-// cadastro.js - Página de registro com sistema de templates
+// Página de registro com sistema de templates
 
 document.addEventListener('DOMContentLoaded', function () {
     // Inicializa a página com os templates
