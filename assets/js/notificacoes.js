@@ -34,22 +34,22 @@ function loadNotifications() {
             {
                 id: 1,
                 title: "🩸 Nova Campanha Disponível",
-                message: "A Campanha Hospital Central está com estoque crítico de sangue tipo O+. Sua ajuda é essencial!",
-                date: "27/06/2025",
+                message: "Hemocentro Regional - Takasaki Harmony. Sua ajuda é essencial contamos com sua doação!",
+                date: "27/09/2025",
                 read: false
             },
             {
                 id: 2,
                 title: "📅 Lembrete de Agendamento",
-                message: "Você tem um agendamento confirmado para 05/07/2025 às 14:00 no Hospital Central. Não esqueça!",
-                date: "26/06/2025",
+                message: "Você tem um agendamento confirmado para 13/10/2025 às 14:00 no Shopping Center - AEON MALL Takasaki. Não esqueça!",
+                date: "26/08/2025",
                 read: false
             },
             {
                 id: 3,
                 title: "✅ Doação Confirmada",
                 message: "Sua doação foi processada com sucesso! Obrigado por salvar vidas. Você pode doar novamente em 90 dias.",
-                date: "15/06/2025",
+                date: "20/07/2025",
                 read: true
             },
             {
