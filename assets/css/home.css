@@ -1,6 +1,4 @@
-/* home.css - Homepage specific styles */
-
-/* Hero section */
+/* Seção Hero - Destaque Principal da Página */
 .hero-section {
     background: linear-gradient(135deg, var(--bs-red-light), #fee2e2);
     border-radius: 12px;
@@ -17,7 +15,7 @@
     font-size: 1rem;
 }
 
-/* Campaigns highlight section */
+/* Seção de Destaque das Campanhas */
 .campaigns-highlight {
     margin-top: 3rem;
 }
@@ -28,7 +26,7 @@
     margin-bottom: 2rem;
 }
 
-/* Featured campaigns styling */
+/* Estilização dos Cards de Campanhas em Destaque */
 #featured-campaigns .campaign-card {
     border-left-width: 5px;
 }
@@ -38,7 +36,7 @@
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Hero buttons */
+/* Estilos dos Botões na Seção Hero */
 .hero-section .btn {
     font-weight: 600;
     padding: 0.75rem 2rem;
@@ -51,7 +49,7 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive adjustments for hero section */
+/* Ajustes Responsivos */
 @media (min-width: 768px) {
     .hero-section h1 {
         font-size: 2.5rem;
@@ -70,13 +68,13 @@
     }
 }
 
-/* Loading state for featured campaigns */
+/* Estado de Carregamento */
 #featured-campaigns .spinner-border {
     width: 3rem;
     height: 3rem;
 }
 
-/* Empty state for campaigns */
+/* Estado Vazio */
 #featured-campaigns .empty-state {
     min-height: 300px;
     display: flex;

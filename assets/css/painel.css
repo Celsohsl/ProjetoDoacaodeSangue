@@ -1,4 +1,4 @@
-/* painel.css - Dashboard page specific styles */
+/* Estilos específicos da página Dashboard */
 
 /* Informações de usuário */
 .user-info {
@@ -29,7 +29,7 @@
     opacity: 0.9;
 }
 
-/* Stats */
+/* Seção de Estatísticas */
 .stat-item {
     background: white;
     border-radius: 8px;
@@ -61,13 +61,14 @@
     animation: pulse 2s infinite;
 }
 
+/* Define a animação de pulsação */
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.02); }
     100% { transform: scale(1); }
 }
 
-/* Table improvements for appointments */
+/* Melhorias na Tabela de Agendamentos */
 .table-responsive {
     border-radius: 8px;
     overflow: hidden;
@@ -92,7 +93,7 @@
     gap: 0.25rem;
 }
 
-/* Quick actions buttons */
+/* Botões de Ações Rápidas */
 .card .btn {
     font-weight: 600;
     border-radius: 8px;
@@ -104,7 +105,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Empty state for appointments */
 #agendamentosTable .text-muted {
     color: #6c757d;
 }
@@ -114,7 +114,7 @@
     margin-bottom: 0.5rem;
 }
 
-/* Responsive improvements */
+/* Melhorias Responsivas */
 @media (max-width: 768px) {
     .user-detail {
         margin-bottom: 0.75rem;
