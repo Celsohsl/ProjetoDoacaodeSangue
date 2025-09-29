@@ -1,6 +1,7 @@
-/* style.css - Main Stylesheet for Blood Donation Website */
+/* Folha de Estilos Principal para Website de Doação de Sangue */
 
 :root {
+    /* Definição de variáveis CSS com as cores primárias */
     --bs-red: #dc2626;
     --bs-red-dark: #b91c1c;
     --bs-red-light: #fef2f2;
@@ -12,7 +13,8 @@ body {
 }
 
 main {
-    margin-top: 6rem; /* Space for fixed header */
+    /* Garante que o conteúdo não fique escondido atrás do header fixo */
+    margin-top: 6rem;
 }
 
 /* Header customizado */
@@ -31,10 +33,6 @@ main {
     margin-right: 0.5rem;
 }
 
-.logo-text {
-    display: none;
-}
-
 /* Menu hamburger customizado */
 .navbar-toggler {
     border: none;
@@ -48,6 +46,7 @@ main {
     box-shadow: none;
 }
 
+/* Estilo das barras do ícone hamburger */
 .hamburger-line {
     background: white;
     display: block;
@@ -57,6 +56,7 @@ main {
     width: 100%;
 }
 
+/* Estilos para o menu fechado */
 .navbar-toggler.collapsed .hamburger-line:nth-child(1) {
     transform: rotate(0deg);
 }
@@ -69,6 +69,7 @@ main {
     transform: rotate(0deg);
 }
 
+/* Estilos para o menu aberto - Transforma as barras em um "X" */
 .navbar-toggler .hamburger-line:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -108,14 +109,15 @@ main {
 /* Cards personalizados */
 
 .card {
-  border-radius: 8px;
-  transition: transform 0.2s ease-in-out;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
+/* Card específico para campanhas */
 .campaign-card {
     border-left: 4px solid var(--bs-red);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -136,7 +138,7 @@ main {
     font-style: italic;
 }
 
-/* Info cards */
+/* Cards de Informação */
 .info-card {
     background: #f0f9ff;
     border-left: 4px solid #0284c7;
@@ -165,7 +167,7 @@ main {
     position: absolute;
 }
 
-/* Custom form styles */
+/* Estilos customizados para formulários */
 .form-control:focus {
     border-color: var(--bs-red);
     box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.25);
@@ -176,7 +178,7 @@ main {
     box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.25);
 }
 
-/* Footer */
+/* Rodapé (Footer) */
 .custom-footer {
     background: #374151;
     color: white;
@@ -197,7 +199,7 @@ main {
     color: #ef0404;
 }
 
-/* Toast messages for better UX */
+/* Mensagens Toast */
 .toast-message {
     position: fixed;
     top: 20px;
@@ -207,13 +209,12 @@ main {
     max-width: 400px;
 }
 
-/* Loading states */
+/* Estados de Carregamento */
 .spinner-border-sm {
     width: 1rem;
     height: 1rem;
 }
 
-/* Empty states */
 .empty-state {
     padding: 3rem 0;
     text-align: center;
@@ -226,7 +227,6 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Error states */
 .error-state {
     padding: 3rem 0;
     text-align: center;
@@ -238,7 +238,7 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Table improvements */
+/* Melhorias em Tabelas */
 .table th {
     font-weight: 600;
     border-bottom: 2px solid #dee2e6;
@@ -248,17 +248,9 @@ main {
     background-color: rgba(220, 38, 38, 0.05);
 }
 
-/* Badge improvements */
 .badge {
     font-size: 0.75rem;
     padding: 0.375rem 0.75rem;
-}
-
-/* Responsive adjustments */
-@media (min-width: 768px) {
-    .logo-text {
-        display: inline;
-    }
 }
 
 /* Melhorias de acessibilidade */
@@ -293,6 +285,7 @@ main {
     opacity: 0.6;
 }
 
+/* Feedback visual para validação de formulário */
 .form-control:invalid {
     border-color: #ef4444;
 }
@@ -301,7 +294,6 @@ main {
     border-color: #22c55e;
 }
 
-/* Scrollbar customizada */
 ::-webkit-scrollbar {
     width: 8px;
 }
