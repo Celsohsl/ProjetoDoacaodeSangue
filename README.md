@@ -2,9 +2,9 @@
 
 Repositório do Projeto de Extensão, do curso **Tecnologia da Informação da UFMS - Universida Federal do Mato Grosso do Sul**
 
-<h2>Sobre o Projeto 🩸 Doação de Sangue Solidária 📜<br></h2>
+<h2>📜Sobre o Projeto<br></h2>
 
-## 📌 Descrição do Projeto
+## 📌 Descrição do Projeto Doação de Sangue Solidária 🩸
 O projeto Doação de Sangue Solidária foi desenvolvido com o objetivo de aproximar doadores brasileiros residentes na cidade de Takasaki-Gunma, ao hemocentro Takasaki Station Blood Donation Room Harmony e campanhas de coleta de sangue, tornando o processo de comunicação, agendamento e notificação mais simples, acessível e eficiente. 
 
 ## 🎯 Objetivo
@@ -61,7 +61,4 @@ Desenvolver uma aplicação web responsiva que facilite a comunicação entre do
 - <img align="center" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
 - <img align="center" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
 
-
-👨‍💻 Autor
-- **[Seu Nome]** – Desenvolvimento Front-end e Documentação.
-<div align="center"><a href="https://github.com/Celsohsl">Celso</a>.</div>
+### <div align="start">👨‍💻 Autor <a href="https://github.com/Celsohsl">Celso</a>.</div>
