@@ -1,4 +1,4 @@
-// campanhas.js - Página de campanhas com sistema de templates (Atualizado)
+// Página de campanhas com sistema de templates (Atualizado)
 
 document.addEventListener('DOMContentLoaded', function () {
     // Carrega os componentes da página
@@ -41,16 +41,6 @@ function loadCampaigns() {
     campaignsContainer.innerHTML = mockCampaigns.map(campaign =>
         getCampaignCardTemplate(campaign)
     ).join('');
-}
-
-function setupCampaignFilters() {
-    // Configuração dos filtros de campanhas
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            console.log('Filtro selecionado:', this.textContent);
-        });
-    });
 }
 
 function filterCampaignsByBloodType(bloodType) {
