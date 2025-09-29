@@ -1,25 +1,23 @@
-// Base de dados de informativos sobre doação de sangue
-
 // Dados dos informativos para exibição
 const informativosPreview = [
     {
         id: 1,
         title: 'Por que doar sangue é importante?',
-        date: '25/06/2025',
+        date: '25/07/2025',
         icon: '📋',
         preview: 'Doar sangue regularmente é um ato de solidariedade que desempenha um papel vital na manutenção dos estoques. A doação de sangue é um ato voluntário que pode salvar até quatro vidas...'
     },
     {
         id: 2,
         title: 'Quem pode doar sangue?',
-        date: '20/06/2025',
+        date: '20/07/2025',
         icon: '🩺',
         preview: 'Para ser um doador de sangue, é necessário atender alguns critérios básicos de saúde e segurança. Confira se você está apto para essa importante missão...'
     },
     {
         id: 3,
         title: 'Mitos e verdades sobre doação',
-        date: '05/06/2025',
+        date: '05/07/2025',
         icon: '⚡',
         preview: 'Esclareça as principais dúvidas e mitos que cercam a doação de sangue. Informação baseada em evidências científicas...'
     }
