@@ -1,73 +1,41 @@
-// common.js - Funções compartilhadas e utilitários (Atualizado para Sistema de Templates)
+// Funções compartilhadas e utilitários
 
 // Dados mock para a aplicação
 const mockCampaigns = [
+
     {
         id: 1,
-        name: "Campanha Hospital Central",
-        location: "Hospital Central - Centro",
-        startDate: "01/07/2025",
-        endDate: "15/07/2025",
-        hours: "8h às 17h",
-        description: "Precisamos urgentemente de doadores tipo O+ e AB-. Ajude-nos a salvar vidas!",
-        bloodTypes: ["O+", "AB-"],
-        icon: "🏥"
-    },
-    {
-        id: 2,
-        name: "Campanha Hemocentro Regional",
-        location: "Hemocentro Regional - Zona Sul",
-        startDate: "28/06/2025",
-        endDate: "10/07/2025",
-        hours: "7h às 18h",
-        description: "Estoque baixo de sangue tipo A+ e O-. Sua doação é essencial!",
+        name: "Campanha Hemocentro Takasaki",
+        location: "Hemocentro Regional - Takasaki Harmony",
+        date: "30/09/2025",
+        hours: "14hs às 17hs",
+        description: "Necessitamos de qualquer tipo sanguíneo. Sua doação é essencial!",
         bloodTypes: ["A+", "O-"],
         icon: "🩸"
     },
+
+    {
+        id: 2,
+        name: "Campanha Móvel",
+        location: "Corpo de Bombeiros - Takasaki",
+        date: "07/10/2025",
+        hours: "9:15hs às 11:15hs",
+        description: "Unidade móvel de coleta. Ajude-nos a salvar vidas!",
+        bloodTypes: ["O+", "AB-"],
+        icon: "🏥"
+    },
+
     {
         id: 3,
         name: "Campanha Móvel Shopping",
-        location: "Shopping Center - Praça Central",
-        startDate: "29/06/2025",
-        endDate: "29/06/2025",
-        hours: "10h às 16h",
+        location: "Shopping Center - AEON MALL Takasaki",
+        date: "13/10/2025",
+        hours: "10hs às 12hs - 13:30hs às 16hs",
         description: "Unidade móvel de coleta. Doe sangue de forma prática e rápida!",
         bloodTypes: ["A+", "B+", "O+", "AB+"],
         icon: "🚐"
     },
-    {
-        id: 4,
-        name: "Campanha Hospital da Criança",
-        location: "Hospital da Criança - Zona Norte",
-        startDate: "02/07/2025",
-        endDate: "20/07/2025",
-        hours: "8h às 16h",
-        description: "Campanha especial para atendimento pediátrico. Necessidade de todos os tipos sanguíneos.",
-        bloodTypes: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
-        icon: "🏥"
-    },
-    {
-        id: 5,
-        name: "Campanha Hospital Universitário",
-        location: "Hospital Universitário - Centro",
-        startDate: "05/07/2025",
-        endDate: "25/07/2025",
-        hours: "7h às 18h",
-        description: "Campanha para reposição geral de estoque. Atendimento estendido nos finais de semana.",
-        bloodTypes: ["A+", "B+", "O+", "AB+"],
-        icon: "🏥"
-    },
-    {
-        id: 6,
-        name: "Campanha Móvel Universidade",
-        location: "Universidade Federal - Campus Central",
-        startDate: "03/07/2025",
-        endDate: "03/07/2025",
-        hours: "9h às 16h",
-        description: "Unidade móvel especial para estudantes e funcionários universitários. Campanha de um dia.",
-        bloodTypes: ["A+", "B+", "O+"],
-        icon: "🚐"
-    }
+
 ];
 
 const mockAppointments = [
