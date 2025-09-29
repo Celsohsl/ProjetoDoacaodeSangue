@@ -1,0 +1,99 @@
+/* Estilos específicos da página de notificações */
+
+/* Estilos das notificações */
+.notification {
+    border-left: 4px solid #e5e7eb;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.notification.unread {
+    background-color: var(--bs-red-light);
+    border-left-color: var(--bs-red);
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+}
+
+.notification:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.notification.unread:hover {
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.notification-title {
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.notification.unread .notification-title {
+    color: var(--bs-red-dark);
+    font-weight: 700;
+}
+
+.notification-date {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.notification p {
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Animação de entrada para novas notificações */
+.notification-enter {
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animação de saída ao marcar como lida */
+.notification-fade {
+    animation: fadeOut 0.3s ease-out;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+}
+
+/* Melhorias para dispositivos móveis */
+@media (max-width: 768px) {
+    .notification {
+        margin-bottom: 1rem;
+        padding: 1rem !important;
+    }
+    
+    .notification-title {
+        font-size: 0.9rem;
+    }
+    
+    .notification p {
+        font-size: 0.85rem;
+    }
+    
+    .notification-date {
+        font-size: 0.75rem;
+    }
+}
