@@ -1,6 +1,6 @@
 // Sistema de templates reutilizáveis para interface do usuário
 
-function getHeaderTemplate(currentPage = '') {
+function getHeaderTemplate() {
     const currentUser = getCurrentUser();
     const isLoggedIn = currentUser !== null;
 
@@ -37,7 +37,7 @@ function getHeaderTemplate(currentPage = '') {
             <div class="container">
                 <a class="navbar-brand text-white" href="index.html">
                     <img src="/assets/images/doacao-de-sangue.png" alt="imagem da logo" width="50" height="50">
-                    <span class="logo-text">Doação de Sangue Solidária</span>
+                    <span>Doação de Sangue Solidária</span>
                 </a>
 
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -60,7 +60,7 @@ function getHeaderTemplate(currentPage = '') {
 // Template do rodapé
 function getFooterTemplate() {
     return `
-        <footer class="custom-footer text-center py-4 mt-5">
+        <footer class="custom-footer text-center py-4 mt-3">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-md-4 mb-3">
@@ -147,18 +147,6 @@ function getHeadTemplate(pageTitle, specificCSS = []) {
     `;
 }
 
-// Template para inclusão de scripts
-function getScriptsTemplate(specificJS = []) {
-    const jsFiles = [
-        'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js',
-        '/assets/js/common.js',
-        '/assets/js/templates.js',
-        ...specificJS
-    ];
-
-    return jsFiles.map(js => `<script src="${js}"></script>`).join('\n        ');
-}
-
 // Template para cartão de campanha de doação
 function getCampaignCardTemplate(campaign) {
     return `
@@ -167,7 +155,7 @@ function getCampaignCardTemplate(campaign) {
                 <div class="card-body">
                     <h3 class="card-title">${campaign.icon || '🏥'} ${campaign.name}</h3>
                     <p class="mb-2"><strong>Local:</strong> ${campaign.location}</p>
-                    <p class="mb-2"><strong>Período:</strong> ${campaign.startDate} a ${campaign.endDate}</p>
+                    <p class="mb-2"><strong>Período:</strong> ${campaign.date}</p>
                     <p class="mb-2"><strong>Horário:</strong> ${campaign.hours}</p>
                     <p class="campaign-description mb-3">${campaign.description}</p>
                     <a href="agendamento.html" class="btn btn-custom-danger">Agendar Agora</a>
@@ -343,19 +331,12 @@ function initializePage(pageTitle, specificCSS = [], specificJS = []) {
     }
 
     initializeTemplates(pageTitle);
-
-    // Configura scripts
-    const scriptsContainer = document.getElementById('scripts-container');
-    if (scriptsContainer) {
-        scriptsContainer.innerHTML = getScriptsTemplate(specificJS);
-    }
 }
 
 // Exporta funções para uso global
 window.getHeaderTemplate = getHeaderTemplate;
 window.getFooterTemplate = getFooterTemplate;
 window.getHeadTemplate = getHeadTemplate;
-window.getScriptsTemplate = getScriptsTemplate;
 window.getCampaignCardTemplate = getCampaignCardTemplate;
 window.getInformativoCardTemplate = getInformativoCardTemplate;
 window.getNotificationTemplate = getNotificationTemplate;
